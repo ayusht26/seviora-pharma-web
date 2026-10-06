@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import logo from "@/assets/seviora-logo.jpg.asset.json";
+import logo from "@/assets/seviora-logo.png.asset.json";
 
 export const CONTACT = {
   email: "info@seviorapharma.com",
@@ -48,7 +48,7 @@ export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 }
 
 function Logo({ className = "" }: { className?: string }) {
-  return <img src={logo.url} alt="Seviora Pharma Private Limited" className={`object-cover mix-blend-multiply ${className}`} />;
+  return <img src={logo.url} alt="Seviora Pharma Private Limited" className={`object-contain ${className}`} />;
 }
 
 const nav = [
@@ -70,7 +70,7 @@ export function Header() {
     <header className={`sticky top-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/85 shadow-soft backdrop-blur-md" : "bg-background"}`}>
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
-          <Logo className="h-16 w-36 object-[50%_45%] [object-fit:cover] scale-[1.35]" />
+          <Logo className="h-12 w-auto" />
         </Link>
         <nav className="hidden items-center gap-9 md:flex">
           {nav.map((n) => (
@@ -106,8 +106,8 @@ export function Footer() {
     <footer className="bg-deep text-deep-foreground">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="inline-block overflow-hidden rounded-xl bg-card">
-            <Logo className="h-24 w-56 scale-[1.25]" />
+          <div className="inline-block rounded-xl bg-card px-5 py-4">
+            <Logo className="h-16 w-auto" />
           </div>
           <p className="mt-6 max-w-sm text-sm text-deep-foreground/70">
             A trusted pharmaceutical company delivering quality medicines, medical goods and solutions to healthcare providers.
