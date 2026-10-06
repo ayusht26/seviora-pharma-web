@@ -15,7 +15,7 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { el.classList.add("in"); io.disconnect(); } },
+      ([e]) => { if (e?.isIntersecting) { el.classList.add("in"); io.disconnect(); } },
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
     io.observe(el);
@@ -31,7 +31,7 @@ export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
+      if (!e?.isIntersecting) return;
       io.disconnect();
       const t0 = performance.now();
       const tick = (t: number) => {
